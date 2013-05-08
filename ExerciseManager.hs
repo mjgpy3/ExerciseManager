@@ -12,7 +12,7 @@ data Date = Date {month :: Int,
 data Time = Time {hour :: Int, 
                   minute :: Int,
                   second :: Int,
-                  period :: String} -- e.g. AM or PM
+                  period :: String} deriving (Eq, Show) -- e.g. AM or PM
 
 data Datetime = Datetime {date :: Date,
                           time :: Time}
