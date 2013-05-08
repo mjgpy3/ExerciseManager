@@ -12,5 +12,8 @@ import DataParser
 
 --main = tail =<< readCSV "workout_file.csv"
 
-main = do text <- readCSV "workout_file.csv"
-          tail text
+tail' [] = []
+tail' (x:xs) = xs
+
+main = do text <- readCSV "./workout_file.csv"
+          tail' text
