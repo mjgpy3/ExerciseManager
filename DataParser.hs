@@ -1,6 +1,6 @@
 module DataParser where
 
-import ExerciseManager
+import ExerciseData
 import Data.List.Split
 
 parseDate :: String -> Date

@@ -1,23 +1,16 @@
 module ExerciseManager where
 
 import WorkoutFileReader
+import ExerciseData
+import DataParser
 
-data Exercise = RepWorkout {repsPerSet :: Int,
-                            numSets :: Int}
+--workoutsFromCSV csv = [ BasicWorkout (parseDate (head header)) 
+--                                (parseTime (last header))
+  --                              [RepWorkout 1 2]
+    --                            | l <- readCSV csv,
+      --                            let (header, exercise) = splitAt 2 (tail l) ]
 
-data Date = Date {month :: Int,
-                  day :: Int,
-                  year :: Int} deriving (Eq, Show)
+--main = tail =<< readCSV "workout_file.csv"
 
-data Time = Time {hour :: Int, 
-                  minute :: Int,
-                  second :: Int,
-                  period :: String} deriving (Eq, Show) -- e.g. AM or PM
-
-data Datetime = Datetime {date :: Date,
-                          time :: Time}
-
-data Workout = BasicWorkout {repWorkouts :: [Exercise],
-                             dateAndTime :: Datetime}
-                             
--- workoutsFromCSV csv = [  | l <- (tail $ readCSV csv)]
+main = do text <- readCSV "workout_file.csv"
+          tail text

@@ -2,7 +2,7 @@ module Test_DataParser where
 
 import DataParser
 import Test.HUnit
-import ExerciseManager
+import ExerciseData
 
 test_parseDate_returns_a_date_object_that_makes_sense =
   TestCase (assertEqual "Making sure that parseDate works" (Date 4 6 1992) (parseDate "04/06/1992"))
