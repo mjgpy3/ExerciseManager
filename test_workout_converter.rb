@@ -19,7 +19,21 @@ class TestWorkoutConverter < Test::Unit::TestCase
     wc = WorkoutConverter.new
     wc.read_workout_file "./TestFiles/testfile2.csv"
 
-    assert_equal ["Date","Time","Push Up Sets","Reps / Set","Sit Up Sets","Reps / Set"], wc.headers
+    answer = wc.headers
+    expected = ["Date","Time","Push Up Sets","Reps / Set","Sit Up Sets","Reps / Set"]
+
+    assert_equal expected, answer
+  end
+
+  def test_reading_a_workout_file_correctly_gets_data
+    wc = WorkoutConverter.new
+    wc.read_workout_file "./TestFiles/testfile2.csv"
+
+    answer = wc.data
+    expected = [["05/06/13" ,"06:00:00 PM", "7", "10", "7", "10"],
+                ["05/07/13", "06:10:00 PM", "5", "10", "5", "10"]]
+
+    assert_equal expected, answer
   end
 
 end
