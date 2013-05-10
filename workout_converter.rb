@@ -21,6 +21,14 @@ class WorkoutConverter
     end
   end
 
+  def convert_workout_file input_file_name, output_file_name
+     read_workout_file input_file_name
+
+     file_out = File.new("./TestFiles/WorkoutLog.hs", 'w')
+     file_out.write result
+     file_out.close
+  end
+
   def text
     @text
   end

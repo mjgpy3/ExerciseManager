@@ -46,4 +46,19 @@ class TestWorkoutConverter < Test::Unit::TestCase
 
     assert_equal expected, answer
   end
+
+  def test_convert_workout_file_works_expectedly
+    wc = WorkoutConverter.new
+    wc.convert_workout_file "./TestFiles/testfile2.csv", "./TestFiles/WorkoutLog.hs"
+
+    output_file = File.new("./TestFiles/WorkoutLog.hs", 'r')
+    answer = output_file.read
+    output_file.close
+
+    expected_file = File.new("TestFiles/WorkoutLog_Expected.hs", 'r')
+    expected = expected_file.read
+    expected_file.close
+
+    assert_equal expected, answer
+  end
 end
