@@ -3,6 +3,9 @@ module ExerciseData where
 data Exercise = RepWorkout {repsPerSet :: Int,
                             numSets :: Int}
 
+totalReps :: Exercise -> Int
+totalReps e = (repsPerSet e) * (numSets e)
+
 data Date = Date {month :: Int,
                   day :: Int,
                   year :: Int} deriving (Eq, Show)
