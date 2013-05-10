@@ -51,7 +51,7 @@ class TestWorkoutConverter < Test::Unit::TestCase
     wc = WorkoutConverter.new
     wc.convert_workout_file "./TestFiles/testfile2.csv", "./TestFiles/WorkoutLog.hs"
 
-    output_file = File.new("./TestFiles/WorkoutLog.hs", 'r')
+    output_file = File.open("./TestFiles/WorkoutLog.hs", 'r')
     answer = output_file.read
     output_file.close
 

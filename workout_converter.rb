@@ -3,6 +3,8 @@
 require './data_parser'
 
 class WorkoutConverter
+  @@imports = ["ExerciseData"]
+
   def read_workout_file file_name
     file = File.new file_name, 'r'
 
@@ -24,9 +26,7 @@ class WorkoutConverter
   def convert_workout_file input_file_name, output_file_name
      read_workout_file input_file_name
 
-     file_out = File.new("./TestFiles/WorkoutLog.hs", 'w')
-     file_out.write result
-     file_out.close
+     write_converted_file output_file_name
   end
 
   def text
@@ -42,6 +42,31 @@ class WorkoutConverter
   end
 
 private
+
+  def write_converted_file file_name
+    file_out = File.new(file_name, 'w')
+
+    # Writing stuff, subject to change
+    file_out.write "module " + get_module_name(file_name) + " where\n\n"
+
+    @@imports.each do |module_name|
+      file_out.write "import " + module_name + "\n"
+    end
+
+    file_out.write "\nworkouts = \n  [\n"
+
+    data_lines = get_converted_data.collect { |x| "    " + x}
+
+    file_out.write data_lines.join(",\n")
+
+    file_out.write "\n  ]\n"
+
+    file_out.close
+  end
+
+  def get_module_name path
+    path.split("/")[-1][0..-4]
+  end
 
   def get_headers
     @text.split("\n")[0].split(",")
