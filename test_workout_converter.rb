@@ -36,15 +36,14 @@ class TestWorkoutConverter < Test::Unit::TestCase
     assert_equal expected, answer
   end
 
-=begin
   def test_WorkoutConverter_correctly_makes_haskell_code_from_data
     wc = WorkoutConverter.new
     wc.read_workout_file "./TestFiles/testfile2.csv"
 
     answer = wc.get_converted_data
-    expected = ["", ""]
+    expected = ["BasicWorkout [RepWorkout 10 7, RepWorkout 10 7] (Datetime (Date 5 6 2013) (Time 6 0 0 \"PM\"))",
+                "BasicWorkout [RepWorkout 10 5, RepWorkout 10 5] (Datetime (Date 5 7 2013) (Time 6 10 0 \"PM\"))"]
 
     assert_equal expected, answer
   end
-=end
 end
