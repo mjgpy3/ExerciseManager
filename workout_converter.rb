@@ -3,9 +3,11 @@
 class WorkoutConverter
   def read_workout_file file_name
     file = File.new file_name, 'r'
+
     @text = file.read
     @headers = get_headers
     @data = get_data
+
     file.close
   end
 

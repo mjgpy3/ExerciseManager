@@ -36,4 +36,15 @@ class TestWorkoutConverter < Test::Unit::TestCase
     assert_equal expected, answer
   end
 
+=begin
+  def test_WorkoutConverter_correctly_makes_haskell_code_from_data
+    wc = WorkoutConverter.new
+    wc.read_workout_file "./TestFiles/testfile2.csv"
+
+    answer = wc.get_converted_data
+    expected = ["", ""]
+
+    assert_equal expected, answer
+  end
+=end
 end
