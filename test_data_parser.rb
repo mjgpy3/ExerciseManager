@@ -10,4 +10,11 @@ class TestDataParser < Test::Unit::TestCase
 
     assert_equal expected, answer
   end
+
+  def test_parse_time_parses_a_standard_time_correctly
+    answer = DataParser.time("06:13:00 PM")
+    expected = "Time 6 13 0 \"PM\""
+
+    assert_equal expected, answer
+  end
 end

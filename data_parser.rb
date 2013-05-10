@@ -7,6 +7,13 @@ class DataParser
 
     "Date " + split_text.collect {|n| StringHelper.strip_leading_zeroes n}.join(" ")
   end
+
+  def self.time text
+    words = text.split(" ")
+    time_parts = words[0].split(":").collect { |n| StringHelper.strip_leading_zeroes n}
+
+    "Time " + time_parts.join(" ") + " \"" + words[1] + "\""
+  end
 end
 
 class StringHelper
