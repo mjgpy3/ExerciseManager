@@ -1,5 +1,11 @@
 #!/usr/bin/env ruby
 
+=begin
+  Used to convert csv files that follow the form of "workout_file.csv"
+  into Haskell source code files (usually "WorkoutLog.hs", but other
+  things _can_ be used)
+=end
+
 require './data_parser'
 
 class WorkoutConverter
