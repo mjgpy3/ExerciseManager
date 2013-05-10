@@ -86,3 +86,15 @@ private
     result
   end
 end
+
+def usage_and_exit
+  puts "Usage: [input_file].csv [output_file].hs"
+  exit
+end
+
+if __FILE__ == $0
+  usage_and_exit if ARGV.length != 2
+
+  wc = WorkoutConverter.new
+  wc.convert_workout_file ARGV[0], ARGV[1]
+end
