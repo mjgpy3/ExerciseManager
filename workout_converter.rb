@@ -51,6 +51,7 @@ private
 
   def write_converted_file file_name
     file_out = File.new(file_name, 'w')
+    wanted_headers = @headers[2..-1].select {|x| @headers.index(x) % 2 == 0}
 
     # Writing stuff, subject to change
     file_out.write "module " + get_module_name(file_name) + " where\n\n"
@@ -60,14 +61,11 @@ private
     end
 
     file_out.write "\nworkouts = \n  ([" +
-                   quotify_strings(@headers[2..-1]).join(', ')+"],[\n"
+                   quotify_strings(wanted_headers).join(', ')+"],[\n"
 
     data_lines = get_converted_data.collect { |x| "    " + x}
-
     file_out.write data_lines.join(",\n")
-
     file_out.write "\n  ])\n"
-
     file_out.close
   end
 
