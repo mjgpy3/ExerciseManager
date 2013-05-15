@@ -60,5 +60,8 @@ class TestWorkoutConverter < Test::Unit::TestCase
     expected_file.close
 
     assert_equal expected, answer
+
+    # Delete the extra created file
+    `rm ./TestFiles/WorkoutLog.hs`
   end
 end

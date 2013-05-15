@@ -59,13 +59,14 @@ private
       file_out.write "import " + module_name + "\n"
     end
 
-    file_out.write "\nworkouts = \n  [\n"
+    file_out.write "\nworkouts = \n  ([" +
+                   quotify_strings(@headers[2..-1]).join(', ')+"],[\n"
 
     data_lines = get_converted_data.collect { |x| "    " + x}
 
     file_out.write data_lines.join(",\n")
 
-    file_out.write "\n  ]\n"
+    file_out.write "\n  ])\n"
 
     file_out.close
   end
@@ -90,6 +91,10 @@ private
     end
 
     result
+  end
+
+  def quotify_strings strings
+    strings.collect {|s| '"' + s + '"'}
   end
 end
 
