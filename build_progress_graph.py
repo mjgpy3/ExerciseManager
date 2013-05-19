@@ -39,6 +39,9 @@ class DataLine(object):
         self.rep_workouts = []
 
     def set_from_csv_line(self, csv_line):
+        """
+            Sets data members from a CSV line
+        """
         data_from_line = csv_line.split(",")
 
         # Assumption: date, time, 2 rep workouts
@@ -53,6 +56,10 @@ class DataLine(object):
         self.rep_workouts = eval("[" + csv_line[21:] + "]")
 
 def parse_datetime_from_standard_date_and_time(date, time):
+    """
+        Returns a datetime object of the form of the date and time strings
+        passed in
+    """
     date_parts = parse_standard_date(date)
     time_parts = parse_standard_time(time)
     
@@ -91,3 +98,11 @@ def parse_standard_time(time):
         int_parts[0] += 12
 
     return int_parts
+
+def same_date(date1, date2):
+    """
+        Checks to see if two dates have the same year, month and day
+    """
+    return (   date1.year == date2.year and
+               date1.day  == date2.day  and
+               date1.month == date2.month    )
