@@ -16,5 +16,8 @@ workouts =
     BasicWorkout [RepWorkout 10 4, RepWorkout 10 4] (Datetime (Date 5 16 2013) (Time 12 20 0 "AM")),
     BasicWorkout [RepWorkout 10 15, RepWorkout 10 15] (Datetime (Date 5 16 2013) (Time 10 10 0 "AM")),
     BasicWorkout [RepWorkout 10 2, RepWorkout 10 2] (Datetime (Date 5 16 2013) (Time 2 0 0 "PM")),
-    BasicWorkout [RepWorkout 20 2, RepWorkout 20 2] (Datetime (Date 5 19 2013) (Time 1 8 0 "AM"))
+    BasicWorkout [RepWorkout 10 9, RepWorkout 10 9] (Datetime (Date 5 17 2013) (Time 9 10 0 "AM")),
+    BasicWorkout [RepWorkout 30 1, RepWorkout 30 1] (Datetime (Date 5 17 2013) (Time 11 26 0 "AM")),
+    BasicWorkout [RepWorkout 20 2, RepWorkout 20 2] (Datetime (Date 5 19 2013) (Time 1 8 0 "AM")),
+    BasicWorkout [RepWorkout 10 10, RepWorkout 10 10] (Datetime (Date 5 19 2013) (Time 10 30 0 "PM"))
   ])
